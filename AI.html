@@ -1,25 +1,61 @@
-<html>
+<html>  
 <body>
-	<header> 
-    <a href="https://www.example.com">Visit Example</a>
-	
+	<header>
+		<p style="text-align: center;">ethanael j ford.</p>
 	</header>
   <hr>
-	
-	<section>
-		<h2>Latest Posts</h2>
-		<article>
-			<h3>Post Title</h3>
-			<p>This is a brief introduction to the blog post.</p>
-		</article>
-	</section>
-	<aside>
-		<h2>About Me</h2>
-		<p>Short bio or profile information.</p>
-	</aside>
+  
+  <!-- Fun Fact Generator Section -->
+  <main style="text-align: center; margin: 40px;">
+    <h2>Random Fun Fact About Me</h2>
+    <p id="funFact" style="font-size: 1.2em; font-weight: bold; margin: 20px;"></p>
+    <button onclick="generateFact()" style="padding: 10px 20px; font-size: 1em; cursor: pointer;">
+      Show Me a Fun Fact
+    </button>
+  </main>
+
+  <!-- Citation Area -->
+  <div style="text-align: center; margin: 20px;">
+    <textarea rows="3" cols="60" readonly>
+Page content generated with the help of ChatGPT. 
+Prompt: "I want a page for my website that gives random fun facts about myself every time I press a button. I only want you to work in the selected area of the page, the header and the footer I have already designed. only create the html file and below the fun fact generator area, put a text box that cites me using ChatGPT and my promt."
+    </textarea>
+  </div>
+  
 	<footer>
 		<nav>
-		<a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
+			<hr>
+		<a href="Splash.html">Home</a> | <a href="Experience.html">Experience</a> | <a href="Skills.html">Skills</a> | <a href="CommunityService.html">Community Service</a> | <a href="AI.html">AI</a> 
 	</nav>
 	</footer>
+
+  <script>
+    const facts = [
+      "My favorite color is light blue.",
+      "I love volleyball.",
+      "I started community college at 13.",
+      "I was ranked #1 worldwide in Minecraft Bedwars.",
+      "I was ranked #80 worldwide in Halo 5.",
+      "I was the fastest bagger at my CFA.",
+      "I held the fastest dishes time for an entire summer camp.",
+      "I played rugby in high school.",
+      "I love to write stories."
+    ];
+
+    let lastIndex = -1;
+
+    function generateFact() {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * facts.length);
+      } while (randomIndex === lastIndex);
+
+      lastIndex = randomIndex;
+      document.getElementById("funFact").textContent = facts[randomIndex];
+    }
+
+    // Show a fun fact immediately on page load
+    window.onload = generateFact;
+  </script>
 </body>
+</html>
